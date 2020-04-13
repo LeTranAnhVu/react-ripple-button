@@ -1,0 +1,122 @@
+//@import "colors";
+$regular-blue: #228be5;
+$light-blue: #60abea;
+$regular-red: #ff3a00;
+$regular-black: #212529;
+$regular-gray: #828181;
+$regular-white: #ffffff;
+$regular-green: #3eff3e;
+
+.bubble-button-div {
+  border-radius: 7px;
+  position: relative;
+  background: transparent;
+  overflow: hidden;
+  z-index: 0;
+  .bubble-button {
+    border-radius: 7px;
+    padding: 8px 18px;
+    transition: all ease-out .3s;
+    position: relative;
+    background: transparent;
+
+    &:focus {
+      outline: none;
+    }
+
+    //:before use for active
+    &:before {
+      display: block;
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      background: #e4e4e459;
+      opacity: 0;
+      animation: ripple .8s ease-out 1;
+    }
+
+    &:active {
+      &:before {
+        animation: none;
+      }
+    }
+  }
+
+  .dot {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    clip-path: circle(0px at 0% 0%);
+    transition: .3s ease-in;
+  }
+  &.blue {
+    .dot {
+      background: $regular-blue;
+    }
+
+    .bubble-button {
+      color: $regular-blue;
+      border: 2px solid $regular-blue;
+
+      &:hover {
+        color: $regular-white;
+      }
+    }
+  }
+
+  &.red {
+    .dot {
+      background: $regular-red;
+    }
+
+    .bubble-button {
+      color: $regular-red;
+      border: 2px solid $regular-red;
+
+      &:hover {
+        color: $regular-white;
+      }
+    }
+  }
+}
+
+
+.bubble-button-div.sm {
+  .bubble-button {
+
+  }
+}
+
+.bubble-button-div.lg {
+  .bubble-button {
+    font-size: 1.2em;
+    padding: 15px 30px;
+  }
+}
+
+@keyframes ripple {
+  0% {
+    clip-path: ellipse(0 0 at 50% 50%);
+    opacity: 1;
+  }
+  30% {
+    clip-path: ellipse(40% 100% at 50% 50%);
+  }
+
+  70% {
+    clip-path: ellipse(80% 150% at 50% 50%);
+  }
+  100% {
+    opacity: 0;
+    clip-path: ellipse(200% 200% at 50% 50%);
+  }
+}
