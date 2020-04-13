@@ -1,7 +1,7 @@
 import React, {useRef} from "react";
-import './BubbleButton.scss';
+import './RippleButton.scss';
 
-const BubbleButton = ({color, children, onClick, isDisabled, style, size, ...attr}) => {
+const RippleButton = ({color, children, onClick, isDisabled, style, size, ...attr}) => {
     const refDot = useRef(null);
     const refDiv = useRef(null);
     const hoverEffect = (e) => {
@@ -28,4 +28,4 @@ const BubbleButton = ({color, children, onClick, isDisabled, style, size, ...att
     )
 };
 
-export default BubbleButton;
+export default RippleButton;

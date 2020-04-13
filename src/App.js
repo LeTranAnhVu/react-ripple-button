@@ -1,12 +1,14 @@
 import React from 'react';
 import './App.scss';
-import BubbleButton from "./BubbleButton";
+import RippleButton from "./RippleButton";
 
 function App() {
   return (
     <div className="App">
         <div className={'center'}>
-            <BubbleButton color='red' size='lg'>Click me</BubbleButton>
+            <RippleButton color='red' size='lg'>Hover me</RippleButton>
+            <span style={{width: '20px'}}></span>
+            <RippleButton color='blue' size='lg'>Hover me</RippleButton>
         </div>
     </div>
   );
